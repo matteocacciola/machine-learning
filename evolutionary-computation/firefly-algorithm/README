@@ -1,0 +1,10 @@
+Please, customize function.h before compiling with
+command to compile	-> gcc FFA.c -o FFA -lm
+or			-> gcc -Wall -Wextra -g -m64 FFA.c -o FFA -lm
+or (parallel)		-> gcc -Wall -Wextra -g -m64 FFA.c -o FFA -lm -fopenmp
+
+Please, customize FFA.ini before launching with 
+command for launching -> ./FFA FFA.ini
+
+VALGRIND;
+G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind -v --tool=memcheck --leak-check=full --num-callers=40 --show-leak-kinds=all --track-origins=yes --log-file=valgrind.log $(which ./FFA) FFA.ini

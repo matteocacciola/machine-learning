@@ -1,0 +1,10 @@
+Please, customize function.h before compiling with
+command to compile	-> gcc ACO.c -o ACO -lm
+or			-> gcc -Wall -Wextra -g -m64 ACO.c -o ACO -lm
+or (parallel)		-> gcc -Wall -Wextra -g -m64 ACO.c -o ACO -lm -fopenmp
+
+Please, customize ACO.ini before launching with 
+command for launching -> ./ACO ACO.ini
+
+VALGRIND:
+G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind -v --tool=memcheck --leak-check=full --num-callers=40 --show-leak-kinds=all --track-origins=yes --log-file=valgrind.log $(which ./ACO) ACO.ini

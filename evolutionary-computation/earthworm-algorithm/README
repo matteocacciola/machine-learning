@@ -1,0 +1,10 @@
+Please, customize function.h before compiling with
+command to compile	-> gcc EWA.c -o EWA -lm
+or			-> gcc -Wall -Wextra -g -m64 EWA.c -o PSO -lm
+or (parallel)		-> gcc -Wall -Wextra -g -m64 EWA.c -o EWA -lm -fopenmp
+
+Please, customize EWA.ini before launching with 
+command for launching -> ./EWA EWA.ini
+
+VALGRIND:
+G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind -v --tool=memcheck --leak-check=full --num-callers=40 --show-leak-kinds=all --track-origins=yes --log-file=valgrind.log $(which ./EWA) EWA.ini

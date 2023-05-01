@@ -1,0 +1,10 @@
+Please, customize function.h before compiling with
+command to compile	-> gcc BCO.c -o BCO -lm
+or			-> gcc -Wall -Wextra -g -m64 BCO.c -o BCO -lm
+or (parallel)		-> gcc -Wall -Wextra -g -m64 BCO.c -o BCO -lm -fopenmp
+
+Please, customize BCO.ini before launching with 
+command for launching -> ./BCO BCO.ini
+
+VALGRIND:
+G_SLICE=always-malloc G_DEBUG=gc-friendly valgrind -v --tool=memcheck --leak-check=full --num-callers=40 --show-leak-kinds=all --track-origins=yes --log-file=valgrind.log $(which ./BCO) BCO.ini
